@@ -7,11 +7,16 @@ var cry = {
     cryrand: 0,
     cancry: true,
     crycountup: 5000,
+    showmsg: false,
 
     init: function () {
         cryrand = 0;
         cancry: true;
         crycountup: 5000;
+    },
+
+    showMsg: function () {
+        cry.showmsg = true;
     },
 
     cry: function () {
@@ -27,6 +32,7 @@ var cry = {
                 cry3.play();
             }
         }
+        setTimeout(this.showMsg, 1000); // show response after 1 second
     },
 
     update: function () {
@@ -40,6 +46,9 @@ var cry = {
         if (this.cancry === false) { // if we can't cry again yet
             if (this.crycountup > 5000) { // check to see if we really can
                 this.cancry = true;
+            }
+            if (this.crycountup > 1000) {
+                this.showmsg = false;
             }
         }
         this.crycountup += 30; // because we're at 30fps
@@ -69,6 +78,25 @@ var cry = {
             ctx.fillStyle = "#FFFFFF";
             ctx.font = "27pt Courier";
             ctx.fillText("Mama?", 280, mamay);
+            ctx.restore();
+        }
+
+        if (this.showmsg) { // response message is showing
+            ctx.save();
+            var msg = "";
+            ctx.fillStyle = "#000000";
+            if (hiddenmother.y < 400) {
+                msg = "I'm here honey";
+                ctx.fillRect(200, 100, 180, 40);
+            } else {
+                msg = "your mother is not on this aisle";
+                ctx.fillRect(200, 100, 330, 40);
+            }
+            ctx.fillStyle = "#FFFFFF";
+            ctx.font = "24px Helvetica";
+            ctx.textAlign = "left";
+            ctx.textBaseline = "top";
+            ctx.fillText(msg, 205, 105);
             ctx.restore();
         }
 

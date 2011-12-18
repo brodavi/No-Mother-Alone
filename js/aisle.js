@@ -129,37 +129,37 @@ var rows = {
     random: function () {
         var therand = Math.random();
         if (therand < 0.1) {
-            return this.bath;
-        } else if (therand < 0.2) {
             return this.pets;
-        } else if (therand < 0.3) {
+        } else if (therand < 0.2) {
             return this.beans;
-        } else if (therand < 0.4) {
+        } else if (therand < 0.3) {
             return this.snacks;
-        } else if (therand < 0.5) {
+        } else if (therand < 0.4) {
             return this.mustard;
-        } else if (therand < 0.6) {
+        } else if (therand < 0.5) {
             return this.produce;
-        } else if (therand < 0.7) {
+        } else if (therand < 0.6) {
             return this.weapons;
+        } else if (therand < 0.7) {
+            return this.bones;
         } else {
             return this.bones;
         }
     },
     nameof: function (y) {
-        if (y < 480) {
+        if (y < 680) {
             return "bath";
-        } else if (y < 980) {
+        } else if (y < 1180) {
             return "pets";
-        } else if (y < 1480) {
+        } else if (y < 1680) {
             return "beans";
-        } else if (y < 1980) {
+        } else if (y < 2180) {
             return "snacks";
-        } else if (y < 2480) {
+        } else if (y < 2680) {
             return "mustard";
-        } else if (y < 2980) {
+        } else if (y < 3180) {
             return "produce";
-        } else if (y < 3480) {
+        } else if (y < 3680) {
             return "weapons";
         } else {
             return "bones";
